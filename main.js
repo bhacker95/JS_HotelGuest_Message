@@ -156,7 +156,10 @@ let company = "";
 
 function userInput() {
   firstName = prompt("What is the guest's first name?");
-  console.log("Hi " + firstName);
+  lastName = prompt("What is the guest's last name?");
+  company = prompt("What company is the guest registered with?");
+  console.log(`Requesting message to be sent to ${firstName} ${lastName} at ${company}`);
+  messageTemplate(firstName, lastName, company);
 }
 
 userInput();
