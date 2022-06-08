@@ -104,10 +104,10 @@ let message = "";
   // Declare function for message template output
 function messageTemplate(firstNameInput, lastNameInput, companyInput) {
   // Check if credentials match
-    let nameCheck = guests.find(guest => guest.lastName === lastNameInput);
+    let nameCheck = guests.find(guest => (guest.lastName === lastNameInput && guest.firstName === firstNameInput));
     let companyCheck = companies.find(co => co.company === companyInput);
   // Input verification
-    if (nameCheck.firstName == firstNameInput && nameCheck.lastName == lastNameInput) {
+    if (nameCheck) {
       if (companyCheck.company == companyInput) {
   // Initialize greeting
         let timeGreeting = "";
@@ -134,7 +134,7 @@ function messageTemplate(firstNameInput, lastNameInput, companyInput) {
   // Find Index for Guest in Array for Room Number      
       let roomIndex = guests.findIndex(guest => guest.firstName == firstNameInput && guest.lastName == lastNameInput);
       let room = guests[roomIndex].reservation['roomNumber'];
-      message = timeGreeting + " " + firstNameInput + ", and welcome to " + companyInput + "! Room " + room.toString() + "is now ready for you. Enjoy your say, and let us know if you need anything.";
+      message = timeGreeting + " " + firstNameInput + ", and welcome to " + companyInput + "! Room " + room.toString() + " is now ready for you. Enjoy your say, and let us know if you need anything.";
       console.log(message);
       }
        else {
@@ -142,7 +142,7 @@ function messageTemplate(firstNameInput, lastNameInput, companyInput) {
       }
     }
     else {
-      console.log('Incorrect Input');
+      console.log('Whoops! Looks like something was entered incorrectly. Please try again.');
     }
   }
 
@@ -155,10 +155,14 @@ let company = "";
 
 
 function userInput() {
-  firstName = prompt("What is the guest's first name?");
-  lastName = prompt("What is the guest's last name?");
-  company = prompt("What company is the guest registered with?");
+  firstName = prompt("What is the guest's first name? ");
+  console.log("\b");
+  lastName = prompt("What is the guest's last name? ");
+  console.log("\b");
+  company = prompt("What company is the guest registered with? ");
+  console.log("\b");
   console.log(`Requesting message to be sent to ${firstName} ${lastName} at ${company}`);
+  console.log("\b");
   messageTemplate(firstName, lastName, company);
 }
 
