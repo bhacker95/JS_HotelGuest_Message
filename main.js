@@ -108,7 +108,7 @@ function messageTemplate(firstNameInput, lastNameInput, companyInput) {
     let companyCheck = companies.find(co => co.company === companyInput);
   // Input verification
     if (nameCheck) {
-      if (companyCheck.company == companyInput) {
+      if (companyCheck) {
   // Initialize greeting
         let timeGreeting = "";
   // Format time for company timezone
@@ -138,11 +138,13 @@ function messageTemplate(firstNameInput, lastNameInput, companyInput) {
       console.log(message);
       }
        else {
-         console.log('Incorrect Company Input');
+        console.log('Whoops! Looks like something was entered incorrectly. Please try again.');
+        userInput();
       }
     }
     else {
       console.log('Whoops! Looks like something was entered incorrectly. Please try again.');
+      userInput();
     }
   }
 
