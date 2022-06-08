@@ -1,11 +1,6 @@
 // Import Modules
-const readline = require("readline");
+const prompt = require("prompt-sync")();
 
-// Create Interface for Input and Output
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 // Sample Data
 let guests = [
@@ -153,35 +148,11 @@ function messageTemplate(firstNameInput, lastNameInput, companyInput) {
 
 // messageTemplate("Candy","Pace","Hotel California");
 
-// Use Readline Module from above to Have User Input Data
+// Use Prompt-Sync Module from above to Have User Input Data
 let firstName = "";
 let lastName = "";
 let company = "";
-// function userInput() {
-//   rl.question('What is the guest\'s first name?', function (string) {
-//     firstName = string;
-//   });
-//   rl.question('What is the guest\'s last name?', function (string) {
-//     lastName = string;
-//   });
-//   rl.question('What company is this guest staying at?', function (string) {
-//     company = string;
-//   });
-//   rl.question('Are the following details correct?:', function (string) {
-//     console.log('Guest Name: ', firstName, ' ', lastName);
-//     console.log('Company: ', company);
-//     response = string;
-//     if (response == 'yes' || 'y') {
-//       if (messageTemplate(firstName, lastName, company) === true) {
-//         console.log('Message Sent!')
-//       }
-//       else {
-//         console.log('Whoops! Looks like some information might have been entered incorrectly! Let\'s try again!')
-//         return;
-//       }
-//     }
-//   });
-// }
+
 
 function userInput() {
   firstName = prompt("What is the guest's first name?");
